@@ -1,0 +1,247 @@
+<?php
+session_start();
+if(!isset($_SESSION['semail']))
+{
+    if(isset($_POST['submitid']))
+    {
+        if(isset($_POST['semail'])!= "")
+        {
+            $mail=$_POST['semail'];
+            $_SESSION['semail'] = $mail;
+            $con1 = mysqli_connect("localhost","root","","juhi_self");
+            $sql1="INSERT INTO subscribe VALUES('','$mail')";
+            $query1=mysqli_query($con1,$sql1);
+        }       
+    }
+}
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keyword" content="Juhi Mehta, Juhi, Juhi website">
+    <title>Juhi Mehta</title>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="index.js"></script>
+    <div class="loader-bg">
+        <div class="loader">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <?php if(!isset($_SESSION['semail'])) { ?>  
+        <div class="popup-main">
+            <div class="popup">
+                <h1 class="subscribe">Subscribe Me</h1>
+                <form action="" method="POST" autocomplete="off">
+                    <input type="email" name="semail" placeholder="Enter your Mail Id...." required="required" class="emailId"><br>
+                    <input type="submit" value="Submit" name="submitid" class="submitId">
+                    <input type="button" value="Ignore" class="ignore" name="ignore">
+                </form>
+            </div>
+        </div>
+    <?php } ?>
+    <header>
+    	<div class="menu-toggler">
+    		<div class="bar half start"></div>
+    		<div class="bar"></div>
+    		<div class="bar half end"></div>
+    	</div>
+    	<nav class="top-nav">
+    		<ul class="nav-list">
+    		<li><a href="index.php" class="nav-link">HOME</a></li>
+    		<li><a href="#about" class="nav-link">ABOUT</a></li>
+    		<li><a href="#skills" class="nav-link">SKILLS</a></li>
+    		<li><a href="#resume" class="nav-link">RESUME</a></li>
+    		<li><a href="#portfolio" class="nav-link">PORTFOLIO</a></li>
+    		<li><a href="#contact" class="nav-link">CONTACT</a></li>
+    		</ul>
+    	</nav>
+    	<div class="landing-text">
+    		<h1>Juhi Mehta</h1>
+    		<h6>IT Engineer (Student)</h6>
+    	</div>
+    </header>
+    <section class="about" id="about">
+    	<div class="container1">
+    		<div class="profile-img" data-aos="fade-right" data-aos-delay="300">
+    			<img src="juhi.jpg">
+    		</div>
+    		<div class="about-details" data-aos="fade-left" data-aos-delay="600">
+    			<div class="about-heading">
+    				<h1>ABOUT</h1>
+    				<h6>MYSELF</h6>
+    			</div>
+    			<p>I Juhi Mehta, currently pursuing B.E. in Information & Technology Branch from L.D. College of Engineering. My hometown is Ahmedabad, Gujarat, India. I was born on 6th of April, 2002. I have strong technical skills as well as excellent interpersonal skills, enabling me to interact with a wide range of clients. I am eager to be challenged in order to grow and further improve my technical skills in the field of I.T. Greatest passion of my life is to implement my technical know-how for making life easier of personnel and organisations.
+                </p> 
+                <div class="social-media">
+                <ul class="nav-list">
+                    <li>
+                        <a href="https://instagram.com/juhi_0604?igshid=gzhmnkxwxf3j" class="icon-link"><i class="fab fa-instagram"></i></a>
+                    </li>
+                    <li>
+                        <a href="tel:9409407780" class="icon-link"><i class="fa fa-phone-square"></i></a>
+                    </li>
+                    <li>
+                        <a href="mailto:juhi.mehta@yahoo.com" class="icon-link"><i class="fa fa-envelope"></i></a>
+                    </li>
+                </ul>
+                </div>  
+            </div>
+    	</div>
+    </section>
+    <section class="services" id="skills">
+    	<div class="container">
+    		<div class="section-heading">
+    			<h1>SKILLS</h1>
+    			<h6>What I am able to do</h6>
+    		</div>
+    		<div class="my-skills">
+    			<div class="skill" data-aos="fade-in" data-aos-delay="300">
+    				<div class="icon-container">
+    					<i class="fas fa-layer-group"></i>
+    				</div>
+    				<h1>WEB DESIGN</h1>
+    				<p>A Web Designer with work experience in HTML5, CSS3, JavaScript, JQuery by creating responsive web applications.</p>
+    			</div>
+    			<div class="skill" data-aos="fade-in" data-aos-delay="600">
+    				<div class="icon-container">
+    					<i class="fas fa-code"></i>
+    				</div>
+    				<h1>WEB DEVELOPEMENT</h1>
+    				<p>A Web Developer with work experience for creation of user friendly Web Applications in MySQL & PHP.</p>
+    			</div>
+    			<div class="skill" data-aos="fade-in" data-aos-delay="900">
+    				<div class="icon-container">
+    					<i class="fa fa-cog"></i>
+    				</div>
+    				<h1>PROGRAMMING</h1>
+    				<p>A Programmer having work experience for encoding different problem statements, in C, Core JAVA, Ruby.</p>
+    			</div>
+    		</div>
+    	</div>
+    </section>
+    <section class="resume" id="resume">
+    	<div class="container">
+    		<div class="section-heading">
+    			<h1>Resume</h1>
+    			<h6>A professional Summary</h6>
+    		</div>
+    		<div class="timeline"  data-aos="fade-down" data-aos-delay="300">
+    			<ul>
+    				<li class="date" data-date="2007 - 2019">
+    					<h1>SCHOOLING</h1>
+    					<p>My schooling was completed from Sheth Chimanlal Nagindas Vidhyavihar, Ahmedabad. I scored 99.72 Percentile in 10th grade and 98.58 Percentile along with School Topper in Mathematics in 12th grade examination of Gujarat Higher Secondary Education Board.</p>
+    				</li>
+    				<li class="date" data-date="2019 - present">
+    					<h1>ONGOING EDUCATION</h1>
+    					<p>High score in 12th G.S.E.B Exams earned me a dream seat of B.E. Information & Technology Branch in Gujarat Technological University’s #1 ranked L.D. College of Engineering, Ahmedabad. Currently I am in 2nd year of my study.</p>
+    				</li>
+    				<li class="date" data-date="Jun,2020 - Aug,2020">
+    					<h1>WORK-EXPIRENCE</h1>
+    					<p>I recently worked on a team project called 'RITIREWAZ', in which we have made a catering website according to the Client's requirements. This website features all of frontend functionalities including backend database connection. We have completed this project with utmost satisfaction of client.</p>
+    				</li>
+    			</ul>
+    		</div>
+    	</div>
+    </section>
+   <section class="portfolio" id="portfolio">
+    	<div class="container">
+    		<div class="section-heading">
+    			<h1>Portfolio</h1>
+    			<h6>View some of my recent works</h6>
+    		</div>
+            <div class="portfolio-item">
+    		  <div class="portfolio-img" data-aos="fade-right" data-aos-delay="300">
+    			<img src="2.jpg">
+    		  </div>
+    		  <div class="portfolio-description" data-aos="fade-left" data-aos-delay="600">
+    		  	<h6>Web Design</h6>
+    			<h1>DESSERTX</h1>
+    			<p>I made a responsive web-page which includes static navigation-bar, search-bar, timer for different offers & some small details about DESSERTX. All of these are developed using HTML, CSS & JavaScript.</p>
+    		</div>
+            </div>
+            <div class="portfolio-item">
+    		<div class="portfolio-description" data-aos="fade-right" data-aos-delay="300">
+    			<h6>Web Developement</h6>
+    			<h1>RITIREWAZ</h1>
+    			<p>I recently worked on a team project called 'RITIREWAZ', in which we have made a catering website according to the Client's requirements. This website features all of frontend functionalities including backend database connection. We have completed this project with utmost satisfaction of client.</p>
+    		</div>
+    		<div class="portfolio-img">
+    			<img src="1.jpg" data-aos="fade-left" data-aos-delay="600">
+    		</div>
+            </div>
+            <div class="portfolio-item">
+    		<div class="portfolio-img" data-aos="fade-right" data-aos-delay="300">
+    			<img src="3.jpg">
+    		</div>
+    		<div class="portfolio-description" data-aos="fade-left" data-aos-delay="600">
+    			<h6>Acquiring Knowledge</h6>
+    			<h1>RUBY</h1>
+    			<p>I recently learned Ruby from SoloLearn - A San Francisco Company & got certificate for it. Ruby is one of today's most beautiful, artful and yet handy and practical programming languages.</p>
+    		</div>
+            </div>
+            <div class="portfolio-item">
+    		<div class="portfolio-description" data-aos="fade-right" data-aos-delay="300">
+    			<h6>& More...</h6>
+    			<h1>JAVA</h1> 
+    			<p>Completed certificate course of Java from Progate - A Japanese company. Java is a comprehensive guide to one of the most popular programming languages in the world.</p>
+    		</div><div class="portfolio-img">
+    			<img src="4.jpg" data-aos="fade-left" data-aos-delay="600">
+    		</div>
+            </div>
+    </section>
+    <section class="contact" id="contact">
+    	<div class="container">
+    		<div class="section-heading">
+    			<h1>Contact</h1>
+    			<h6>Let's work together.</h6>
+    		</div>
+            <form action="#about" method="POST" data-aos="fade-up" data-aos-delay="300" autocomplete="off">
+    			<label>Name: </label><input type="text" name="name" placeholder="Enter Your Name..." required>
+    			<label>Email: </label><input type="email" name="email" placeholder="Enter Your Mail Id..." required>
+    			<label>Mobile: </label><input type="text" name="mobile" placeholder="Enter Your Contact Number..." required pattern="[0-9]{10}" title="Please enter 10 digit valid Mobile Number...!">
+                <label>Message: </label><textarea name="message" id="message" cols="20" rows="5" required></textarea>
+    			<input type="submit" name="submit" value="Submit">
+    		</form>
+    </section>
+    <section class="copyright">
+    	<div class="up" id="up">
+    	<i class="fas fa-chevron-up"></i>
+    	</div>
+        <p>©: 2020 Juhi Mehta</p>
+        <summary>▸Designed by Juhi Mehta</summary>
+    </section>	
+</body>
+</html>
+<?php
+$con = mysqli_connect('localhost','root','');
+    if(!$con)
+    {
+        echo("Server not found");
+    }
+    if(!mysqli_select_db($con,'juhi_self'))
+    {
+        echo("Database not found");
+    }
+    if(isset($_POST['submit']))
+    {
+        $name = $_POST['name'];
+        $email = $_POST['email'];
+        $mobile = $_POST['mobile'];
+        $message = $_POST['message'];
+        $sql = "INSERT INTO self(id,name,email,mobile,message) values('','$name','$email','$mobile','$message')";
+        $query=mysqli_query($con,$sql);
+    }
+?>
